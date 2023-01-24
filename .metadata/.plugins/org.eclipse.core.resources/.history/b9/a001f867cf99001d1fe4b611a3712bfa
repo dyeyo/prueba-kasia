@@ -1,0 +1,13 @@
+package com.example.users.repositoris;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.users.entites.Users;
+
+public interface UserRepository extends CrudRepository<Users, Long>{
+	
+	public List<Users> findByEmail(String email);
+	
+}

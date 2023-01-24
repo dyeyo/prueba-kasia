@@ -1,0 +1,26 @@
+package com.example.users.services.implement;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.users.entites.Users;
+import com.example.users.repositoris.UserRepository;
+import com.example.users.services.UserServices;
+
+public class UserServiceImp implements UserServices{
+	@Autowired
+	private UserRepository repository;
+	
+	@Override
+	public Iterable<Users> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Users> findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+}

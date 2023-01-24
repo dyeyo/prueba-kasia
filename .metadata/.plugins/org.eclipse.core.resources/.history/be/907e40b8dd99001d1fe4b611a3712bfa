@@ -1,0 +1,13 @@
+package services.implement;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.example.posts.entities.Post;
+
+public interface PostService {
+
+	public Iterable<Post> getAllpost();
+	public Post save(Post post);
+	public List<Post> findByid(Long id); 
+}

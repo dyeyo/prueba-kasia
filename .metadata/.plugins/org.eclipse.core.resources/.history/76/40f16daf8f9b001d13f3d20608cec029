@@ -1,0 +1,13 @@
+package com.example.posts.exeptions;
+import org.springframework.http.HttpStatus;
+public class ResourceNotFoundException {
+	
+	public ResourceNotFoundException() {
+        super(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    public ResourceNotFoundException(String message) {
+        super(HttpStatus.UNPROCESSABLE_ENTITY, message);
+    }
+        
+}

@@ -1,0 +1,9 @@
+package com.example.users.repositoris;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.users.entites.Users;
+
+public interface UserRepository extends CrudRepository<Users, Long>{
+	
+}

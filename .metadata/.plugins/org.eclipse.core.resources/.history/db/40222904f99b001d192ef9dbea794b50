@@ -1,0 +1,18 @@
+package com.example.posts.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.example.posts.entities.Post;
+import com.example.users.entites.Users;
+
+public interface PostService {
+	List<Post> getAllpost();
+	public Page<Post> findAllPaginabe(Pageable page);
+	Post save(Post post);
+	Optional<Post> findByid(Long id);
+	List<Post> getPostsByUser(Integer userId);
+}

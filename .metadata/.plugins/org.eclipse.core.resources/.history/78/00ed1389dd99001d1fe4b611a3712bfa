@@ -1,0 +1,5 @@
+package services.implement;
+
+public interface PostService {
+
+}

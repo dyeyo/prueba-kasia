@@ -1,0 +1,15 @@
+package com.example.posts.services.implement;
+
+import com.example.posts.entities.Comment;
+
+import com.example.posts.services.CommentsServices;
+
+public class CommentsServicesImpl implements CommentsServices {
+
+	@Override
+	public Comment save(Comment post) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

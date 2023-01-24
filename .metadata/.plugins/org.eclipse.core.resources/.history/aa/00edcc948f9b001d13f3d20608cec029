@@ -1,0 +1,15 @@
+package com.example.posts.exeptions;
+
+import org.apache.http.HttpStatus;
+
+public class ResourceNotFoundException {
+	
+	public ResourceNotFoundException() {
+        super(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    public ResourceNotFoundException(String message) {
+        super(HttpStatus.SC_UNPROCESSABLE_ENTITY, message);
+    }
+        
+}

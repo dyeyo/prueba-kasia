@@ -1,0 +1,22 @@
+package com.example.users.services;
+
+import java.util.Optional;
+
+import com.example.users.entites.Users;
+import com.example.users.services.implement.UserServiceImp;
+
+public class UserServices implements UserServiceImp {
+
+	@Override
+	public Iterable<Users> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Users> findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+}

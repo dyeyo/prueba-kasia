@@ -1,0 +1,11 @@
+package com.example.users.exceptions;
+
+public class ReporteException {
+	public ResourceNotFoundException() {
+        super(HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    public ResourceNotFoundException(String message) {
+        super(HttpStatus.UNPROCESSABLE_ENTITY, message);
+    }
+}

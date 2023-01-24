@@ -1,0 +1,13 @@
+package services.implement;
+
+import java.util.Optional;
+
+import com.example.posts.entities.Post;
+import com.example.users.entites.Users;
+
+public interface PostService {
+
+	public Iterable<Post> findByUser();
+	public Post save(Post post);
+	public List<Post> findByid(String email); 
+}

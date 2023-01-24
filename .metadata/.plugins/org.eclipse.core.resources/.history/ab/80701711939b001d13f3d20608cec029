@@ -1,0 +1,16 @@
+package com.example.users.repositoris;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.users.dtos.UserDto;
+import com.example.users.entites.Users;
+
+public interface UserRepository extends JpaRepository<Users, Long>{
+	
+	public Optional<UserDto> findByEmail(String email);
+	
+	
+}

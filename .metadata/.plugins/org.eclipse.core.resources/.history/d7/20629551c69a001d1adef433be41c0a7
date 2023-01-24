@@ -1,0 +1,5 @@
+package com.example.posts.repositoris;
+
+public interface PostRepository {
+
+}

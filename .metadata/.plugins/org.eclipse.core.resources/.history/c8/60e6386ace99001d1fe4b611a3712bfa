@@ -1,0 +1,19 @@
+package com.example.users.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.users.entites.Users;
+import com.example.users.repositoris.UserRepository;
+import com.example.users.services.implement.UserServiceImp;
+
+@Service
+public class UserServices  {
+
+	public Iterable<Users> findAll();
+	public Optional<Users> findByEmail(String email); 
+	
+
+}

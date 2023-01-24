@@ -1,0 +1,60 @@
+package com.example.posts.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+
+import com.example.posts.entities.Post;
+
+import com.example.posts.services.PostService;
+
+@RestController
+public class PostController {
+
+	@Autowired
+	private PostService postService;
+	
+	
+	@GetMapping
+	public ResponseEntity<List<Post>> getAll() {
+		return ResponseEntity.ok().body(postService.getAllpost());
+	}
+	
+	@GetMapping("/page/{page}")
+	public Page<Post> getAllPagnabe(@PathVariable Integer page) {
+		return postService.findAllPaginable(PageRequest.of(page, 10));
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Optional<Post>> getById(@PathVariable("id") Long id) {
+		Optional<Post> postExist = postService.findByid(id);
+		if(postExist.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(postService.findByid(id));
+	}
+
+
+	@GetMapping("/user/{userId}")
+	public ResponseEntity<List<Post>> getPostsByUser(@PathVariable("userId") Integer userId) {
+
+		final List<Post> postsByUser = postService.getPostsByUser(userId);
+		if(postsByUser.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(postsByUser);
+	}
+	
+	@PostMapping("/save")
+	public ResponseEntity<Post> save(@RequestBody Post post) {
+		Post newPost = postService.save(post);
+		return ResponseEntity.status(HttpStatus.CREATED).body(newPost);
+	}
+}

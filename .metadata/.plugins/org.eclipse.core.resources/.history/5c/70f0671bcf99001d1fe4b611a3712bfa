@@ -1,0 +1,35 @@
+package com.example.users.services.implement;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.example.users.entites.Users;
+import com.example.users.repositoris.UserRepository;
+import com.example.users.services.UserServices;
+
+@Service
+public class UserServiceImp implements UserServices{
+	
+	@Autowired
+	private UserRepository repository;
+	
+	@Override
+	public Iterable<Users> findAll() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
+	@Override
+	public Optional<Users> findByEmail(String email) {
+		// TODO Auto-generated method stub
+		Optional<Users> o = repository.findByEmail(emial);
+		if (o.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(o.get());
+		return repository.findAll();
+	}
+}

@@ -1,0 +1,5 @@
+package com.example.posts.exeptions;
+
+public class ResourceNotFoundException {
+
+}
