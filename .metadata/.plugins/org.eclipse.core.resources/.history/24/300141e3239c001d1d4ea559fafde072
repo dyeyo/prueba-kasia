@@ -1,0 +1,16 @@
+package com.example.users.mappers;
+
+import com.example.users.dtos.UserDto;
+import com.example.users.entites.UserEntity;
+
+public class UserMapper {
+	
+	public UserDto userEntityToUserDto(UserEntity userEntity) {
+		UserDto user = new UserDto();
+		user.setId(userEntity.getId());
+	}
+	
+	public UserEntity UserDtoTouserEntity() {
+		
+	}
+}

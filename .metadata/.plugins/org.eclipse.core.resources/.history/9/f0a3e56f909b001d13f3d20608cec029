@@ -1,9 +1,0 @@
-package com.example.users.exceptions;
-
-
-import org.springframework.http.HttpStatus;
-
-public class ReporteException  extends ParentException {
-	
-	
-}

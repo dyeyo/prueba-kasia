@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.users.dtos.UserDto;
-import com.example.users.entites.Users;
+import com.example.users.entites.UserEntity;
 import com.example.users.services.UserServices;
 
 @RestController
@@ -40,19 +40,19 @@ public class UserController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Users>> getAll() {
+	public ResponseEntity<List<UserDto>> getAll() {
 		return ResponseEntity.ok().body(userService.findAll());
 	}
 	
 	@GetMapping("/page/{page}")
-	public Page<Users> getAllPagnabe(@PathVariable Integer page) {
+	public Page<UserDto> getAllPagenable(@PathVariable Integer page) {
 		return userService.findAllPaginabe(PageRequest.of(page, 10));
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Users> findByEmail(@PathVariable("email") String email) {
+	public ResponseEntity<UserEntity> findByEmail(@PathVariable("email") String email) {
 		
-		Optional<Users> user = userService.findByEmail(email); 
+		Optional<UserEntity> user = userService.findByEmail(email); 
 		if (user.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
@@ -60,15 +60,15 @@ public class UserController {
 	}
 	
 	@PostMapping("/")
-	public ResponseEntity<?> save(@RequestBody Users user) {
+	public ResponseEntity<?> save(@RequestBody UserEntity user) {
 		
-		Optional<Users> emailExist = userService.findByEmail(user.getEmail());
+		Optional<UserEntity> emailExist = userService.findByEmail(user.getEmail());
 		Map<String, Object>  response = new HashMap<>();
 		if (emailExist.isPresent()) {
 			response.put("mensage", "Email exist in database");
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
 		} 
-		Users newUser= userService.save(user);
+		UserEntity newUser= userService.save(user);
 		return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
 	}
 	

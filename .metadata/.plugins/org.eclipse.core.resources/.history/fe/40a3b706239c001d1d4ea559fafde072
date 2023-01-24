@@ -1,0 +1,14 @@
+package com.example.users.mappers;
+
+import com.example.users.dtos.UserDto;
+
+public class UserMapper {
+	
+	public UserDto userEntityToUserDto() {
+		
+	}
+	
+public UserDto userEntityToUserDto() {
+		
+	}
+}
